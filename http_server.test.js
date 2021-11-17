@@ -67,7 +67,3 @@ it("verify data", async (done) => {
   expect(data.body.some((e) => e.name === user3.name)).toBeTruthy();
   done();
 });
-
-it("fail tests", () => {
-  expect(false).toBeTruthy();
-});
