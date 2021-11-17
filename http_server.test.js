@@ -62,19 +62,16 @@ it("populate data", async (done) => {
 
 it("verify data", async (done) => {
   const data = await request.get("/data");
-  expect(data.body.some((e) => e.name === user1.name)).toBeFalse();
+  expect(data.body.some((e) => e.name === user1.name)).toBeTruthy();
   expect(data.body.some((e) => e.name === user2.name)).toBeTruthy();
   expect(data.body.some((e) => e.name === user3.name)).toBeTruthy();
   done();
 });
 
-const port = process.env.PORT || 3000;
-
-var server = app.listen(port, function () {
-  console.log(`Running on port ${port}!`);
-});
-
-afterAll((done) => {
-  server.close();
-  done();
-});
+it("fail tests", () => {
+  expect(false).toBeTruthy();
+}),
+  afterAll((done) => {
+    server.close();
+    done();
+  });
