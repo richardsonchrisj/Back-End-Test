@@ -71,14 +71,3 @@ it("verify data", async (done) => {
 it("fail tests", () => {
   expect(false).toBeTruthy();
 });
-
-const port = process.env.PORT || 3000;
-
-var server = app.listen(port, function () {
-  console.log(`Running on port ${port}!`);
-});
-
-afterAll((done) => {
-  server.close();
-  done();
-});
