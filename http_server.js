@@ -46,16 +46,11 @@ app.post("/add", function (req, res) {
   res.send(db.get("users").value());
 });
 
-// --------------------------
-//   for supertest testing
-//   comment out listener
-// --------------------------
+const port = process.env.PORT || 3000;
 
-// start server
-// -----------------------
-// app.listen(3000, function(){
-//     console.log('Running on port 3000!')
-// })
+const server = app.listen(port, function () {
+  console.log(`Running on port ${port}|!`);
+});
 
 // export app for testing
-module.exports = app;
+module.exports = { app, server };

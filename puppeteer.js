@@ -5,10 +5,10 @@ const puppeteer = require("puppeteer");
     const page = await browser.newPage();
     await page.setViewport({ width: 1920, height: 1080 });
 
-    await page.goto("http://localhost:3000/addUser.html");
+    await page.goto("/addUser.html");
     await page.click("#addUser");
 
-    await page.goto("http://localhost:3000/data.html");
+    await page.goto("/data.html");
     await page.click("#showAllData");
 
     await page.waitForSelector("#status:not(:empty)");
@@ -16,7 +16,7 @@ const puppeteer = require("puppeteer");
     let status = await page.$("#status");
     console.log(await status.evaluate((node) => node.innerHTML));
 
-    await page.goto("http://localhost:3000/allUsers.html");
+    await page.goto("/allUsers.html");
     await page.click("#showAllData");
     await page.waitForSelector("#status:not(:empty)");
     await page.screenshot({ path: "screen.png" });
